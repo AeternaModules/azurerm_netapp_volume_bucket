@@ -1,3 +1,7 @@
+output "netapp_volume_buckets_id" {
+  description = "Map of id values across all netapp_volume_buckets, keyed the same as var.netapp_volume_buckets"
+  value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => v.id }
+}
 output "netapp_volume_buckets_file_system_cifs_username" {
   description = "Map of file_system_cifs_username values across all netapp_volume_buckets, keyed the same as var.netapp_volume_buckets"
   value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => v.file_system_cifs_username }
