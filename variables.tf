@@ -22,8 +22,8 @@ EOT
     name                      = string
     volume_id                 = string
     file_system_cifs_username = optional(string)
-    path                      = optional(string) # Default: "/"
-    permissions               = optional(string) # Default: "ReadOnly"
+    path                      = optional(string)
+    permissions               = optional(string)
     file_system_nfs_user = optional(object({
       group_id = number
       user_id  = number
