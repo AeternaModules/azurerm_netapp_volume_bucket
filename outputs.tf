@@ -8,11 +8,11 @@ output "netapp_volume_buckets_file_system_cifs_username" {
 }
 output "netapp_volume_buckets_file_system_nfs_user" {
   description = "Map of file_system_nfs_user values across all netapp_volume_buckets, keyed the same as var.netapp_volume_buckets"
-  value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => v.file_system_nfs_user if v.file_system_nfs_user != null && length(v.file_system_nfs_user) > 0 }
+  value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => one(v.file_system_nfs_user) if v.file_system_nfs_user != null && length(v.file_system_nfs_user) > 0 }
 }
 output "netapp_volume_buckets_key_vault" {
   description = "Map of key_vault values across all netapp_volume_buckets, keyed the same as var.netapp_volume_buckets"
-  value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => v.key_vault if v.key_vault != null && length(v.key_vault) > 0 }
+  value       = { for k, v in azurerm_netapp_volume_bucket.netapp_volume_buckets : k => one(v.key_vault) if v.key_vault != null && length(v.key_vault) > 0 }
 }
 output "netapp_volume_buckets_name" {
   description = "Map of name values across all netapp_volume_buckets, keyed the same as var.netapp_volume_buckets"
